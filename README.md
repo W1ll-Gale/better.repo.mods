@@ -1,5 +1,5 @@
 # Description
-Entrypoint to all the mods developer for [R.E.P.O.](https://store.steampowered.com/app/3241660).
+This is a fork of the popular [TeamUpgrades](https://thunderstore.io/c/repo/p/EvilCheetah/TeamUpgrades/) by [EvilCheetah](https://github.com/EvilCheetah/repo.mods) that has been updated for R.E.P.O. v0.3.0. 
 
 # Project Structure:
 This repo holds multiple projects, each in its own branch. Below is an overview:
@@ -14,7 +14,4 @@ This repo holds multiple projects, each in its own branch. Below is an overview:
 
 
 ## Feedback and Suggestions
-If you have any feedback or suggestions, feel free to open an issue on the [GitHub repository](https://github.com/EvilCheetah/repo.mods).
-
-## Say Thanks
-If you'd like to show your appreciation, you can give me a profile award on my [Steam Page](https://steamcommunity.com/id/EvilCheetah/).
+If you have any feedback or suggestions, feel free to open an issue on the [GitHub repository]([https://github.com/EvilCheetah/repo.mods](https://github.com/W1ll-Gale/repo.mods)).

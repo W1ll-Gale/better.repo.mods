@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using REPOTeamBoosters;
 
 namespace TeamUpgrades.Patches
 {
@@ -12,7 +13,10 @@ namespace TeamUpgrades.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradePlayerGrabRange(SemiFunc.PlayerGetSteamID(player));
+                TeamBoostersBase.mls.LogInfo($"Upgraded Player Grab Range for player {SemiFunc.PlayerGetSteamID(player)}");
             }
+
+            TeamBoostersBase.mls.LogInfo("Applied Player Grab Range upgrade to all players.");
 
             return false;
         }

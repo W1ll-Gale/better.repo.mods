@@ -12,7 +12,10 @@ namespace REPOTeamBoosters.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradePlayerHealth(SemiFunc.PlayerGetSteamID(player));
+                TeamBoostersBase.mls.LogInfo($"Upgraded Player Health for player {SemiFunc.PlayerGetSteamID(player)}");
             }
+
+            TeamBoostersBase.mls.LogInfo("Applied Player Health upgrade to all players.");
 
             return false;
         }

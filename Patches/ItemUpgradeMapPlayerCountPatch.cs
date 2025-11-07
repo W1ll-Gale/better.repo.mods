@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using BepInEx;
+using HarmonyLib;
 
 namespace REPOTeamBoosters.Patches
 {
@@ -12,7 +13,10 @@ namespace REPOTeamBoosters.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradeMapPlayerCount(SemiFunc.PlayerGetSteamID(player));
+                TeamBoostersBase.mls.LogInfo($"Upgraded Map Player Count for player {SemiFunc.PlayerGetSteamID(player)}");
             }
+
+            TeamBoostersBase.mls.LogInfo("Applied Map Player Count upgrade to all players.");
 
             return false;
         }

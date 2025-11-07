@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using REPOTeamBoosters;
 
 namespace TeamUpgrades.Patches
 {
@@ -12,7 +13,10 @@ namespace TeamUpgrades.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradePlayerExtraJump(SemiFunc.PlayerGetSteamID(player));
+                TeamBoostersBase.mls.LogInfo($"Upgraded Player Extra Jump for player {SemiFunc.PlayerGetSteamID(player)}");
             }
+
+            TeamBoostersBase.mls.LogInfo("Applied Player Extra Jump upgrade to all players.");
 
             return false;
         }

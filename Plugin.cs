@@ -14,15 +14,15 @@ namespace REPOTeamBoosters
     [BepInPlugin(mod_guid, mod_name, mod_version)]
     public class TeamBoostersBase : BaseUnityPlugin
     {
-        private const string mod_guid    = "EvilCheetah.REPO.TeamBoosters";
-        private const string mod_name    = "Team Boosters";
-        private const string mod_version = "1.1.4";
-        
+        private const string mod_guid = "MrBytesized.REPO.BetterTeamBoosters";
+        private const string mod_name = "Better Team Boosters";
+        private const string mod_version = "1.2.2";
+
         private readonly Harmony harmony = new Harmony(mod_guid);
 
         private static TeamBoostersBase instance;
 
-        internal ManualLogSource mls;
+        internal static ManualLogSource mls;
 
         void Awake()
         {
@@ -34,7 +34,7 @@ namespace REPOTeamBoosters
             mls = BepInEx.Logging.Logger.CreateLogSource(mod_guid);
 
             harmony.PatchAll(typeof(TeamBoostersBase));
-            
+
             Configuration.Init(Config);
 
             var patches = new PatchInfo[]
@@ -84,6 +84,26 @@ namespace REPOTeamBoosters
                     () => harmony.PatchAll(typeof(ItemUpgradePlayerTumbleLaunchPatch)),
                     "Player Thumle Lauch Upgrade"
                 ),
+                (
+                    Configuration.EnableItemUpgradePlayerTumbleWingsPatch,
+                    () => harmony.PatchAll(typeof(ItemUpgradePlayerTumbleWingsPatch)),
+                    "Player Tumble Launch Upgrade"
+                ),
+                (
+                    Configuration.EnableItemUpgradePlayerTumbleClimbPatch,
+                    () => harmony.PatchAll(typeof(ItemUpgradePlayerTumbleClimbPatch)),
+                    "Player Tumble Launch Upgrade"
+                ),
+                (
+                    Configuration.EnableItemUpgradeDeathHeadBatteryPatch,
+                    () => harmony.PatchAll(typeof(ItemUpgradeDeathHeadBatteryPatch)),
+                    "Player Tumble Launch Upgrade"
+                ),
+                (
+                    Configuration.EnableItemUpgradePlayerCrouchRestPatch,
+                    () => harmony.PatchAll(typeof(ItemUpgradePlayerCrouchRestPatch)),
+                    "Player Crouch Rest Upgrade"
+                )
             };
 
             foreach (var (is_patch_enabled, apply_patch, patch_name) in patches)
@@ -95,7 +115,7 @@ namespace REPOTeamBoosters
                 }
             }
 
-            mls.LogInfo("Team Boosters mod has been activated");
+            mls.LogInfo("Better Team Boosters mod has been activated");
         }
     }
 }

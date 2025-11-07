@@ -21,6 +21,7 @@ This is a fork of the popular [TeamUpgrades](https://thunderstore.io/c/repo/p/Ev
 
 
 ## Future Plans
+- Implement a native late joining system that supports upgrade syncing like the currently broken `LateJoinSharedUpgradesByNastyPablo` mod directly integrated within the [BetterTeamUpgrades](https://thunderstore.io/c/repo/p/MrBytesized/BetterTeamUpgrades/) mod.
 - I plan on overhauling the current [TeamUpgrades](https://thunderstore.io/c/repo/p/EvilCheetah/TeamUpgrades/) system or updating the [SharedUpgrades](https://thunderstore.io/c/repo/p/Traktool/SharedUpgrades/) mod to fix the _known issue_ which causes the upgrade to not be applied until level change as the implementation of that mod is probably a better and more flexible approach allowing modded upgrades as well but for now i just wanted a fully working vanilla mod for now so enjoy!
 
 ## Issues

@@ -32,13 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\repo.mods\packages\team-upgrades\BepInEx\core\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\source\repos\repo.mods\packages\team-upgrades\BepInEx\core\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\REPO\REPO_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>..\..\..\repo.mods\packages\team-upgrades\BepInEx\core\BepInEx.dll</HintPath>
+      <HintPath>..\..\..\source\repos\repo.mods\packages\team-upgrades\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="PhotonRealtime">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\REPO\REPO_Data\Managed\PhotonRealtime.dll</HintPath>
@@ -76,6 +76,7 @@
     <Compile Include="Patches\ItemUpgradePlayerTumbleLaunchPatch.cs" />
     <Compile Include="Patches\ItemUpgradePlayerSprintSpeedPatch.cs" />
     <Compile Include="Patches\ItemUpgradePlayerTumbleWingsPatch.cs" />
+    <Compile Include="Patches\LateJoinPlayerUpgradeSyncPatch.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

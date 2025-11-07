@@ -40,6 +40,11 @@ namespace REPOTeamBoosters
             var patches = new PatchInfo[]
             {
                 (
+                Configuration.EnableLateJoinPlayerUpdateSyncPatch,
+                    () => harmony.PatchAll(typeof(LateJoinPlayerUpgradeSyncPatch)),
+                    "Late Join Player Upgrade Sync"
+                ),
+                (
                 Configuration.EnableItemUpgradeMapPlayerCountPatch,
                     () => harmony.PatchAll(typeof(ItemUpgradeMapPlayerCountPatch)),
                     "Map Player Count Upgrade"

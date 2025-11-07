@@ -5,6 +5,7 @@ namespace TeamUpgrades.Configuration
 {
     internal class Configuration
     {
+        public static ConfigEntry<bool> EnableLateJoinPlayerUpdateSyncPatch;
         public static ConfigEntry<bool> EnableItemUpgradeMapPlayerCountPatch;
         public static ConfigEntry<bool> EnableItemUpgradePlayerEnergyPatch;
         public static ConfigEntry<bool> EnableItemUpgradePlayerExtraJumpPatch;
@@ -21,6 +22,13 @@ namespace TeamUpgrades.Configuration
 
         public static void Init(ConfigFile config)
         {
+            EnableLateJoinPlayerUpdateSyncPatch = config.Bind<bool>(
+                "General",
+                "EnableLateJoinPlayerUpgradeSync",
+                false,
+                "Enables Upgrade Sync for Late Joining Players"
+            );
+
             EnableItemUpgradeMapPlayerCountPatch = config.Bind<bool>(
                 "General",
                 "EnableUpgradeMapPlayer",

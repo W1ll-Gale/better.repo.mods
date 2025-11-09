@@ -16,12 +16,12 @@ namespace TeamHeals.Patches
 
         static public bool Prefix(PunManager __instance)
         {
-            ref var shop_manager = ref shop_manager_ref(__instance);
-            var health_packs     = new HashSet<Item>(shop_manager.potentialItemHealthPacks).Distinct().ToList();
+            ref ShopManager shop_manager = ref shop_manager_ref(__instance);
+            List<Item> health_packs = new HashSet<Item>(shop_manager.potentialItemHealthPacks).Distinct().ToList();
 
-            for (var index = 0; index < health_packs.Count; ++index)
+            for (int index = 0; index < health_packs.Count; ++index)
             {
-                var item_name = health_packs[index].itemName;
+                string item_name = health_packs[index].itemName;
 
                 string result = Regex.Replace(item_name, @"\d+", match =>
                 {

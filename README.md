@@ -34,7 +34,7 @@ This repo holds multiple projects, each in its own branch. Below is an overview:
 | `master` (this branch)      | Project Entrypoint                                                                                 | [View on GitHub](https://github.com/W1ll-Gale/better.repo.mods/tree/master)                     | ✅                |
 | `mods.better-team-upgrades` | [BetterTeamUpgrades](https://thunderstore.io/c/repo/p/MrBytesized/BetterTeamUpgrades/) Mod Project | [View on GitHub](https://github.com/W1ll-Gale/better.repo.mods/tree/mods.better-team-upgrades)  | ✅                |
 | `mods.scaling-prices`       | [ScalingPrices](https://thunderstore.io/c/repo/p/EvilCheetah/ScalingPrices/) Mod Project           | [View on GitHub](https://github.com/W1ll-Gale/better.repo.mods/tree/mods.better-scaling-prices) | ❌                |
-| `mods.better-team-heals`    | [BetterTeamHeals](https://thunderstore.io/c/repo/p/EvilCheetah/TeamHeals/) Mod Project             | [View on GitHub](https://github.com/W1ll-Gale/better.repo.mods/tree/mods.better-team-heals)     | ❌                |
+| `mods.better-team-heals`    | [BetterHeals](https://thunderstore.io/c/repo/p/EvilCheetah/TeamHeals/) Mod Project             | [View on GitHub](https://github.com/W1ll-Gale/better.repo.mods/tree/mods.better-team-heals)     | ✅                |
 | `mods.kurwa-hunter`         | [KurwaHunter](https://thunderstore.io/c/repo/p/EvilCheetah/KurwaHunter/) Mod Project               | [View on GitHub](https://github.com/W1ll-Gale/better.repo.mods/tree/mods.better-kurwa-hunter)   | ❌                |
 
 

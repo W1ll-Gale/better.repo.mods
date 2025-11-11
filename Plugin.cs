@@ -12,8 +12,8 @@ namespace TeamHeals
     [BepInPlugin(mod_guid, mod_name, mod_version)]
     public class TeamHealsPlugin : BaseUnityPlugin
     {
-        private const string mod_guid = "MrBytesized.REPO.BetterTeamHeals";
-        private const string mod_name = "Better Team Heals";
+        private const string mod_guid = "MrBytesized.REPO.BetterHeals";
+        private const string mod_name = "Better Heals";
         private const string mod_version = "2.0.0";
 
         private readonly Harmony harmony = new Harmony(mod_guid);

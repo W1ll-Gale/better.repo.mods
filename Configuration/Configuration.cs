@@ -23,98 +23,98 @@ namespace TeamUpgrades.Configuration
         public static void Init(ConfigFile config)
         {
             EnableLateJoinPlayerUpdateSyncPatch = config.Bind<bool>(
-                "General",
+                "Late Join Settings",
                 "EnableLateJoinPlayerUpgradeSync",
                 false,
                 "Enables Upgrade Sync for Late Joining Players"
             );
 
             EnableItemUpgradeMapPlayerCountPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradeMapPlayer",
                 true,
                 "Enables Team Upgrades for Map Player Count Upgrade"
             );
 
             EnableItemUpgradePlayerEnergyPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerEnergy",
                 true,
                 "Enables Team Upgrades for Player Energy Upgrade"
             );
 
             EnableItemUpgradePlayerExtraJumpPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerExtraJump",
                 true,
                 "Enables Team Upgrades for Player Extra Jump Upgrade"
             );
 
             EnableItemUpgradePlayerGrabRangePatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerGrabRange",
                 true,
                 "Enables Team Upgrades for Player Grab Range Upgrade"
             );
 
             EnableItemUpgradePlayerGrabStrengthPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerGrabStrength",
                 true,
                 "Enables Team Upgrades for Player Grab Strength Upgrade"
             );
 
             EnableItemUpgradePlayerGrabThrowPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerGrabThrow",
                 true,
                 "Enables Team Upgrades for Player Grab Throw Upgrade"
             );
 
             EnableItemUpgradePlayerHealthPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerHealth",
                 true,
                 "Enables Team Upgrades for Player Health Upgrade"
             );
 
             EnableItemUpgradePlayerSprintSpeedPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerSprintSpeed",
                 true,
                 "Enables Team Upgrades for Player Sprint Speed Upgrade"
             );
 
             EnableItemUpgradePlayerTumbleLaunchPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerTumbleLaunch",
                 true,
                 "Enables Team Upgrades for Player Tumble Launch Upgrade"
             );
 
             EnableItemUpgradePlayerTumbleWingsPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerTumbleWings",
                 true,
                 "Enables Team Upgrades for Player Tumble Wings Upgrade"
             );
 
             EnableItemUpgradePlayerTumbleClimbPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerTumbleClimb",
                 true,
                 "Enables Team Upgrades for Player Tumble Climb Upgrade"
             );
 
             EnableItemUpgradeDeathHeadBatteryPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradeDeathHeadBattery",
                 true,
                 "Enables Team Upgrades for Death Head Battery Upgrade"
             );
 
             EnableItemUpgradePlayerCrouchRestPatch = config.Bind<bool>(
-                "General",
+                "Upgrade Sync Settings",
                 "EnableUpgradePlayerCrouchRest",
                 true,
                 "Enables Team Upgrades for Player Crouch Rest Upgrade"

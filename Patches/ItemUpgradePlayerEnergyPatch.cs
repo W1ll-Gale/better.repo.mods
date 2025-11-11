@@ -12,10 +12,10 @@ namespace REPOTeamBoosters.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradePlayerEnergy(SemiFunc.PlayerGetSteamID(player));
-                TeamBoostersBase.mls.LogInfo($"Upgraded Player Energy for player {SemiFunc.PlayerGetSteamID(player)}");
+                TeamBoostersBase.Log.LogInfo($"Upgraded Player Energy for player {SemiFunc.PlayerGetSteamID(player)}");
             }
 
-            TeamBoostersBase.mls.LogInfo("Applied Player Energy upgrade to all players.");
+            TeamBoostersBase.Log.LogInfo("Applied Player Energy upgrade to all players.");
 
             return false;
         }

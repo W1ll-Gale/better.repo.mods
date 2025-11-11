@@ -13,10 +13,10 @@ namespace REPOTeamBoosters.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradeMapPlayerCount(SemiFunc.PlayerGetSteamID(player));
-                TeamBoostersBase.mls.LogInfo($"Upgraded Map Player Count for player {SemiFunc.PlayerGetSteamID(player)}");
+                TeamBoostersBase.Log.LogInfo($"Upgraded Map Player Count for player {SemiFunc.PlayerGetSteamID(player)}");
             }
 
-            TeamBoostersBase.mls.LogInfo("Applied Map Player Count upgrade to all players.");
+            TeamBoostersBase.Log.LogInfo("Applied Map Player Count upgrade to all players.");
 
             return false;
         }

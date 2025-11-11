@@ -12,6 +12,22 @@ namespace TeamUpgrades.Patches
         [HarmonyPostfix]
         private static void UpgradeLateJoinPlayer()
         {
+
+            RunManager rm = RunManager.instance;
+            if (rm == null ||
+            rm.levelCurrent == rm.levelMainMenu ||
+            rm.levelCurrent == rm.levelLobbyMenu ||
+            rm.levelCurrent == rm.levelRecording ||
+            rm.levelCurrent == rm.levelSplashScreen)
+            {
+                return;
+            }
+
+            if (!SemiFunc.IsMasterClientOrSingleplayer())
+            {
+                return;
+            }
+
             List<PlayerAvatar> players = SemiFunc.PlayerGetAll();
             if (players == null || !players.Any())
             {
@@ -34,7 +50,7 @@ namespace TeamUpgrades.Patches
             SyncUpgrade("playerUpgradeRange", steamIDs, steamID => PunManager.instance.UpgradePlayerGrabRange(steamID));
             SyncUpgrade("playerUpgradeTumbleWings", steamIDs, steamID => PunManager.instance.UpgradePlayerTumbleWings(steamID));
 
-            TeamBoostersBase.mls.LogInfo("Synchronized all upgrades for all players.");
+            TeamBoostersBase.Log.LogInfo("Synchronized all upgrades for all players.");
         }
 
         private static void SyncUpgrade(string upgradeDictionaryName, List<string> steamIDs, Action<string> upgradeAction)
@@ -63,7 +79,7 @@ namespace TeamUpgrades.Patches
                             }
                         }
                     }
-                    TeamBoostersBase.mls.LogInfo($"Synchronized upgrade '{upgradeDictionaryName}' to level {maxLevel} for all players.");
+                    TeamBoostersBase.Log.LogInfo($"Synchronized upgrade '{upgradeDictionaryName}' to level {maxLevel} for all players.");
                 }
             }
         }

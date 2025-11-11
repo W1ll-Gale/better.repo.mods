@@ -14,15 +14,15 @@ namespace REPOTeamBoosters
     [BepInPlugin(mod_guid, mod_name, mod_version)]
     public class TeamBoostersBase : BaseUnityPlugin
     {
-        private const string mod_guid = "MrBytesized.REPO.BetterTeamBoosters";
-        private const string mod_name = "Better Team Boosters";
-        private const string mod_version = "1.2.2";
+        private const string mod_guid = "MrBytesized.REPO.BetterTeamUpgrades";
+        private const string mod_name = "Better Team Upgrades";
+        private const string mod_version = "1.3.3";
 
         private readonly Harmony harmony = new Harmony(mod_guid);
 
         private static TeamBoostersBase instance;
 
-        internal static ManualLogSource mls;
+        internal static ManualLogSource Log;
 
         void Awake()
         {
@@ -31,7 +31,7 @@ namespace REPOTeamBoosters
                 instance = this;
             }
 
-            mls = BepInEx.Logging.Logger.CreateLogSource(mod_guid);
+            Log = BepInEx.Logging.Logger.CreateLogSource(mod_guid);
 
             harmony.PatchAll(typeof(TeamBoostersBase));
 
@@ -116,11 +116,11 @@ namespace REPOTeamBoosters
                 if (is_patch_enabled.Value)
                 {
                     apply_patch();
-                    mls.LogInfo($"{patch_name} patch is applied");
+                    Log.LogInfo($"{patch_name} patch is applied");
                 }
             }
 
-            mls.LogInfo("Better Team Boosters mod has been activated");
+            Log.LogInfo("Better Team Boosters mod has been activated");
         }
     }
 }

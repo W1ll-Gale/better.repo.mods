@@ -13,10 +13,10 @@ namespace TeamUpgrades.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradeDeathHeadBattery(SemiFunc.PlayerGetSteamID(player));
-                TeamBoostersBase.mls.LogInfo($"Upgraded Death Head Battery for player {SemiFunc.PlayerGetSteamID(player)}");
+                TeamBoostersBase.Log.LogInfo($"Upgraded Death Head Battery for player {SemiFunc.PlayerGetSteamID(player)}");
             }
 
-            TeamBoostersBase.mls.LogInfo("Applied Death Head Battery upgrade to all players.");
+            TeamBoostersBase.Log.LogInfo("Applied Death Head Battery upgrade to all players.");
 
             return false;
         }

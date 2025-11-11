@@ -13,10 +13,10 @@ namespace TeamUpgrades.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradePlayerGrabStrength(SemiFunc.PlayerGetSteamID(player));
-                TeamBoostersBase.mls.LogInfo($"Upgraded Player Grab Strength for player {SemiFunc.PlayerGetSteamID(player)}");
+                TeamBoostersBase.Log.LogInfo($"Upgraded Player Grab Strength for player {SemiFunc.PlayerGetSteamID(player)}");
             }
 
-            TeamBoostersBase.mls.LogInfo("Applied Player Grab Strength upgrade to all players.");
+            TeamBoostersBase.Log.LogInfo("Applied Player Grab Strength upgrade to all players.");
 
             return false;
         }

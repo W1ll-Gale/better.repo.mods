@@ -13,10 +13,10 @@ namespace TeamUpgrades.Patches
             foreach (var player in players)
             {
                 PunManager.instance.UpgradePlayerTumbleWings(SemiFunc.PlayerGetSteamID(player));
-                TeamBoostersBase.mls.LogInfo($"Upgraded Player Tumble Wings for player {SemiFunc.PlayerGetSteamID(player)}");
+                TeamBoostersBase.Log.LogInfo($"Upgraded Player Tumble Wings for player {SemiFunc.PlayerGetSteamID(player)}");
             }
 
-            TeamBoostersBase.mls.LogInfo("Applied Player Tumble Wings upgrade to all players.");
+            TeamBoostersBase.Log.LogInfo("Applied Player Tumble Wings upgrade to all players.");
 
             return false;
         }

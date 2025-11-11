@@ -1,9 +1,9 @@
 ﻿using HarmonyLib;
 using Photon.Pun;
 using System.Reflection;
-using TeamHeals.Config;
+using BetterHeals.Config;
 
-namespace TeamHeals.Patches
+namespace BetterHeals.Patches
 {
     static class ExtractionPointHealPatch
     {

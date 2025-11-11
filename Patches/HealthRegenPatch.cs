@@ -1,9 +1,9 @@
 ﻿using HarmonyLib;
 using Photon.Pun;
-using TeamHeals.Config;
+using BetterHeals.Config;
 using UnityEngine;
 
-namespace TeamHeals.Patches
+namespace BetterHeals.Patches
 {
     public class RegenUpdater : MonoBehaviour
     {

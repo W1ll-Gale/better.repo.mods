@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using HarmonyLib;
-using TeamHeals.Config;
+using BetterHeals.Config;
 
-namespace TeamHeals.Patches
+namespace BetterHeals.Patches
 {
     [HarmonyPatch(typeof(PunManager), nameof(PunManager.ShopPopulateItemVolumes))]
     internal class PunManagerPatch

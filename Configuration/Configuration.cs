@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 
-namespace TeamHeals.Config
+namespace BetterHeals.Config
 {
     internal class Configuration
     {
@@ -44,7 +44,7 @@ namespace TeamHeals.Config
             HealthRegenAmount = config.Bind<int>(
                 "General Health Settings",
                 "HealthRegenAmount",
-                1,
+                10,
                 new ConfigDescription(
                     "The amount of health players will regenerate each interval if the Health Regeneration patch is enabled",
                     new AcceptableValueRange<int>(1, 20)
@@ -53,7 +53,7 @@ namespace TeamHeals.Config
             CustomRegenIntervalAmount = config.Bind<int>(
                 "General Health Settings",
                 "CustomRegenIntervalAmount",
-                20,
+                60,
                 new ConfigDescription(
                     "The interval in seconds at which players will regenerate health if the Health Regeneration patch is enabled",
                     new AcceptableValueRange<int>(1, 120)
@@ -74,7 +74,7 @@ namespace TeamHeals.Config
             ExtractionHealAmount = config.Bind<int>(
                 "General Health Settings",
                 "ExtractionHealAmount",
-                1,
+                20,
                 new ConfigDescription(
                     "The health that alive players receive after extraction is completed",
                     new AcceptableValueRange<int>(0, 200)
@@ -109,7 +109,7 @@ namespace TeamHeals.Config
             CustomReviveHealthAmount = config.Bind<int>(
                 "Team Health Settings",
                 "CustomReviveHealthAmount",
-                1,
+                20,
                 new ConfigDescription(
                     "The health that a player receives upon revival",
                     new AcceptableValueRange<int>(1, 100)

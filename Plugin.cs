@@ -3,18 +3,18 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using System;
-using TeamHeals.Config;
-using TeamHeals.Patches;
+using BetterHeals.Config;
+using BetterHeals.Patches;
 using UnityEngine;
 
-namespace TeamHeals
+namespace BetterHeals
 {
     [BepInPlugin(mod_guid, mod_name, mod_version)]
     public class TeamHealsPlugin : BaseUnityPlugin
     {
         private const string mod_guid = "MrBytesized.REPO.BetterHeals";
         private const string mod_name = "Better Heals";
-        private const string mod_version = "2.0.0";
+        private const string mod_version = "2.1.0";
 
         private readonly Harmony harmony = new Harmony(mod_guid);
 
@@ -59,20 +59,42 @@ namespace TeamHeals
             {
                 (Configuration.EnableCustomReviveHealthPatch,
                     () => harmony.PatchAll(typeof(PlayerReviveHealthPatch)),
-                    () => harmony.UnpatchSelf(),
+                    () => harmony.Unpatch(
+                        AccessTools.Method(typeof(PlayerAvatar), "ReviveRPC"),
+                        AccessTools.Method(typeof(PlayerReviveHealthPatch), "ReviveRPC_Postfix")
+                    ),
                     "Custom Revive Health"),
                 (Configuration.EnableExtractionHealPatch,
                     () => harmony.PatchAll(typeof(ExtractionPointHealPatch)),
-                    () => harmony.UnpatchSelf(),
+                    () => harmony.Unpatch(
+                        AccessTools.Method(typeof(ExtractionPoint), "StateSet"),
+                        AccessTools.Method(typeof(ExtractionPointHealPatch), "StateSet_Postfix")
+                    ),
                     "Extraction Heal"),
                 (Configuration.EnableHealthRegenPatch,
                     () => harmony.PatchAll(typeof(HealthRegenPatch)),
-                    () => harmony.UnpatchSelf(),
+                    () => harmony.Unpatch(
+                        AccessTools.Method(typeof(LevelGenerator), "GenerateDone"),
+                        AccessTools.Method(typeof(HealthRegenPatch), "Start_Postfix")
+                    ),
                     "Health Regeneration"),
                 (Configuration.EnableFullHealthAtStartPatch,
                     () => harmony.PatchAll(typeof(FullHealthAtStartPatch)),
-                    () => harmony.UnpatchSelf(),
+                    () => harmony.Unpatch(
+                        AccessTools.Method(typeof(LevelGenerator), "GenerateDone"),
+                        AccessTools.Method(typeof(FullHealthAtStartPatch), "GenerateDone_Postfix")
+                    ),
                     "Full Health At Start"),
+                (Configuration.EnableTeamHealthPackPatch,
+                    () => harmony.Patch(
+                        AccessTools.Method(typeof(ItemHealthPack), "UsedRPC"),
+                        postfix: new HarmonyMethod(typeof(ItemHealthPackPatch), "TeamHealthPackSync")
+                    ),
+                    () => harmony.Unpatch(
+                        AccessTools.Method(typeof(ItemHealthPack), "UsedRPC"),
+                        AccessTools.Method(typeof(ItemHealthPackPatch), "TeamHealthPackSync")
+                    ),
+                    "Health Pack Team Healing"),
             };
 
             foreach (var (configEntry, enablePatch, disablePatch, description) in patchArray)
@@ -80,12 +102,6 @@ namespace TeamHeals
                 UpdatePatchFromConfig(configEntry, enablePatch, disablePatch, description);
                 configEntry.SettingChanged += (sender, args) => UpdatePatchFromConfig(configEntry, enablePatch, disablePatch, description);
             }
-
-            PatchTeamHealing(Configuration.EnableTeamHealthPackPatch.Value);
-            Configuration.EnableTeamHealthPackPatch.SettingChanged += (sender, args) =>
-            {
-                PatchTeamHealing(Configuration.EnableTeamHealthPackPatch.Value);
-            };
         }
 
         private void UpdatePatchFromConfig(
@@ -103,24 +119,6 @@ namespace TeamHeals
             {
                 disablePatch.Invoke();
                 Log.LogInfo($"{description} patch disabled.");
-            }
-        }
-
-        private void PatchTeamHealing(bool enable)
-        {
-            if (enable)
-            {
-                harmony.Patch(
-                    AccessTools.Method(typeof(ItemHealthPack), "UsedRPC"),
-                    postfix: new HarmonyMethod(typeof(ItemHealthPackPatch), "TeamHealthPackSync")
-                ); Log.LogInfo("Health Pack Team Healing patch enabled.");
-            }
-            else
-            {
-                harmony.Unpatch(
-                    AccessTools.Method(typeof(ItemHealthPack), "UsedRPC"),
-                    AccessTools.Method(typeof(ItemHealthPackPatch), "TeamHealthPackSync")
-                ); Log.LogInfo("Health Pack Team Healing patch disabled by config.");
             }
         }
     }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-namespace TeamHeals.Patches
+namespace BetterHeals.Patches
 {
     static class FullHealthAtStartPatch
     {

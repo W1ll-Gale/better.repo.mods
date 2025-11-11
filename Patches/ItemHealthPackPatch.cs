@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
-using TeamHeals.Config;
+using BetterHeals.Config;
 
-namespace TeamHeals.Patches
+namespace BetterHeals.Patches
 {
     static class ItemHealthPackPatch
     {

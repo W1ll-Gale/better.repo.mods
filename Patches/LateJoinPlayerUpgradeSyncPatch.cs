@@ -3,6 +3,7 @@ using REPOTeamBoosters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TeamUpgrades.Config;
 
 namespace TeamUpgrades.Patches
 {
@@ -12,6 +13,10 @@ namespace TeamUpgrades.Patches
         [HarmonyPostfix]
         private static void UpgradeLateJoinPlayer()
         {
+            if (!Configuration.EnableLateJoinPlayerUpdateSyncPatch.Value)
+            {
+                return;
+            }
 
             RunManager rm = RunManager.instance;
             if (rm == null ||

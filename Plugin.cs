@@ -2,7 +2,7 @@
 using BepInEx.Logging;
 using HarmonyLib;
 using REPOTeamBoosters.Patches;
-using TeamUpgrades.Configuration;
+using TeamUpgrades.Config;
 using TeamUpgrades.Patches;
 
 

@@ -1,7 +1,7 @@
 ﻿using BepInEx.Configuration;
 
 
-namespace TeamUpgrades.Configuration
+namespace TeamUpgrades.Config
 {
     internal class Configuration
     {

@@ -7,7 +7,7 @@ using BetterHeals.Config;
 
 namespace BetterHeals.Patches
 {
-    [HarmonyPatch(typeof(PunManager), nameof(PunManager.ShopPopulateItemVolumes))]
+    [HarmonyPatch(typeof(PunManager), nameof(PunManager.ShopPopulateItemVolumes), new System.Type[0])]
     internal class PunManagerPatch
     {
         private static readonly AccessTools.FieldRef<PunManager, ShopManager>

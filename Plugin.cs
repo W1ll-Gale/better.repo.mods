@@ -14,7 +14,7 @@ namespace BetterHeals
     {
         private const string mod_guid = "MrBytesized.REPO.BetterHeals";
         private const string mod_name = "Better Heals";
-        private const string mod_version = "2.1.0";
+        private const string mod_version = "2.1.1";
 
         private readonly Harmony harmony = new Harmony(mod_guid);
 
@@ -49,11 +49,9 @@ namespace BetterHeals
 
             Log.LogInfo("Team Heals mod has been activated");
 
-            harmony.PatchAll(typeof(TeamHealsPlugin));
-            harmony.PatchAll(typeof(PunManagerPatch));
-            Log.LogInfo("PunManager patch applied.");
-            harmony.PatchAll(typeof(ItemHealthPackPatch));
-            Log.LogInfo("ItemHealthPack patch applied.");
+            TryPatch("plugin", () => harmony.PatchAll(typeof(TeamHealsPlugin)));
+            TryPatch("PunManager", () => harmony.PatchAll(typeof(PunManagerPatch)));
+            TryPatch("ItemHealthPack", () => harmony.PatchAll(typeof(ItemHealthPackPatch)));
 
             patchArray = new (ConfigEntry<bool>, Action, Action, string)[]
             {
@@ -110,15 +108,35 @@ namespace BetterHeals
             Action disablePatch,
             string description)
         {
-            if (configEntry.Value)
+            try
             {
-                enablePatch.Invoke();
-                Log.LogInfo($"{description} patch enabled.");
+                if (configEntry.Value)
+                {
+                    enablePatch.Invoke();
+                    Log.LogInfo($"{description} patch enabled.");
+                }
+                else
+                {
+                    disablePatch.Invoke();
+                    Log.LogInfo($"{description} patch disabled.");
+                }
             }
-            else
+            catch (Exception exception)
             {
-                disablePatch.Invoke();
-                Log.LogInfo($"{description} patch disabled.");
+                Log.LogError($"{description} patch failed: {exception}");
+            }
+        }
+
+        private void TryPatch(string description, Action apply)
+        {
+            try
+            {
+                apply();
+                Log.LogInfo($"{description} patch applied.");
+            }
+            catch (Exception exception)
+            {
+                Log.LogError($"{description} patch failed: {exception}");
             }
         }
     }

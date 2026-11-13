@@ -13,19 +13,12 @@ namespace BetterHeals.Patches
         [HarmonyPostfix]
         static void GenerateDone_Postfix()
         {
-            RunManager rm = RunManager.instance;
-            if (rm == null ||
-                rm.levelCurrent == rm.levelMainMenu ||
-                rm.levelCurrent == rm.levelLobbyMenu ||
-                rm.levelCurrent == rm.levelLobby ||
-                rm.levelCurrent == rm.levelShop ||
-                rm.levelCurrent == rm.levelRecording ||
-                rm.levelCurrent == rm.levelSplashScreen)
+            if (!SemiFunc.RunIsLevel())
             {
                 return;
             }
 
-            if (PhotonNetwork.IsMasterClient)
+            if (SemiFunc.IsMasterClientOrSingleplayer())
             {
                 new GameObject("HealCoroutineRunner").AddComponent<HealRunner>();
             }
